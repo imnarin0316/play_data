@@ -18,9 +18,12 @@ maker = "LG"
 # 위 변수의 값을 다음과 같은 형태로 출력하시오.
 #"제품명 : TV, 가격 : 300000, 제조사 : LG"
 
-template = "제품명:{}, 가격:{}, 제조사{}"
-info = template.format(name, price, maker)
+# template = "제품명:{}, 가격:{}, 제조사{}"
+# info = template.format(name, price, maker)
+info = "제품명:%s, 가격: %d ,제조사:%s" %(name, price, maker)
 print(info)
+
+
 
 #5.
 fruits = "사과 복숭아 귤 배"
@@ -34,6 +37,6 @@ print(str_value.count('a'))
 
 
 #7. 두개의 정수를 입력받아서 곱한 결과를 출력하는 코드를 작성하세요.
-# a = input('a 정수:')
-# b = input('b 정수:')
-# print(int(a) * int(b))
+a = input('a 정수:')
+b = input('b 정수:')
+print(int(a) * int(b))
