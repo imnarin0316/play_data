@@ -33,7 +33,7 @@ str_value = "aldkjaldjfalfjlksajfladlkaalalkdjfa"
 print(str_value.count('a'))
 
 
-#7. 두개의 정수를 입력받아서 곱한 결과를 출력하는 코S를 작성하세요.
-a = input('a 정수:')
-b = input('b 정수:')
-print(int(a) * int(b))
+#7. 두개의 정수를 입력받아서 곱한 결과를 출력하는 코드를 작성하세요.
+# a = input('a 정수:')
+# b = input('b 정수:')
+# print(int(a) * int(b))
