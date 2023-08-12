@@ -18,8 +18,11 @@ maker = "LG"
 # 위 변수의 값을 다음과 같은 형태로 출력하시오.
 #"제품명 : TV, 가격 : 300000, 제조사 : LG"
 
+# 방법1
 # template = "제품명:{}, 가격:{}, 제조사{}"
 # info = template.format(name, price, maker)
+
+# 방법2
 info = "제품명:%s, 가격: %d ,제조사:%s" %(name, price, maker)
 print(info)
 
