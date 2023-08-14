@@ -71,4 +71,4 @@ print(info)
 #(15) 위 딕셔너리에서 email 주소를 다른 값으로 변경하세요.
 info['email'] = "injji0316@naver.com"
 print(info)
-
+ㅊㅊ
