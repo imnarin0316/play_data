@@ -1,22 +1,11 @@
-def solution(ineq, eq, n, m):
-    dab = None
-    if ineq == "<" :
-        if eq == "=" :
-            dab = n <= m 
-        else :
-            dab = n < m
-    else :
-        if eq == "=" :
-            dab = n >= m 
-        else :
-            dab = n > m
-    answer = 1 if dab else 0 
-    return answer
+def solution(num_list):
+    su1 = []
+    su2 = []
+    for su in num_list:
+        su2.append(str(su)) if su % 2 == 0 else su1.append(str(su))
+    s1 = ''.join(su1)
+    s2 = ''.join(su2)
+    
+    return int(s1) + int(s2)
 
-print(solution("<","=",20,50))
-
-
-# 쉬운 예제
-# eval 문자열의 식 값을 반환함.
-def solution(ineq, eq, n, m):
-    return int(eval(str(n)+ineq+eq.replace('!', '')+str(m)))
+print(solution([3, 4, 5, 2, 1]))
