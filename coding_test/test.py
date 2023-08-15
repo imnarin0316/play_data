@@ -1,11 +1,14 @@
 def solution(num_list):
-    su1 = []
-    su2 = []
-    for su in num_list:
-        su2.append(str(su)) if su % 2 == 0 else su1.append(str(su))
-    s1 = ''.join(su1)
-    s2 = ''.join(su2)
+    answer = num_list
+    print(answer)
+    # su1 = num_list[-1]
+    # su2 = num_list[-2]
+    # su3 = 0
+    # if su1 > su2 :
+    #     su3 = su1 - su2
+    # else :
+    #     su3 = su1*2 
     
-    return int(s1) + int(s2)
+    return 
 
-print(solution([3, 4, 5, 2, 1]))
+print(solution([5, 2, 1, 7, 5]))
