@@ -45,11 +45,17 @@ print(avarage)
 
 #(5) 위 jumsu리스트에서 평균점수이상은 pass, 미만은 fail을 index번호와 함께 출력하시오. (ex: 0-pass, 1-pass, 2-fail)
 p_f = []
-for i in range(len(jumsu)) :
-    if jumsu[i] >= avarage :
-        p_f.append(f"{i}-pass")
-    else:
-        p_f.append(f"{i}-fail")
+for index, su in enumerate(jumsu):
+    if su >= avarage :
+        p_f.append(f"{index}-pass")
+    else: 
+        p_f.append(f"{index}-fail")
+
+# for i in range(len(jumsu)) :
+#     if jumsu[i] >= avarage :
+#         p_f.append(f"{i}-pass")
+#     else:
+#         p_f.append(f"{i}-fail")
 print(', '.join(p_f))
 
 
