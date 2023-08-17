@@ -5,5 +5,4 @@ def solution(l, r):
             answer.append(num)
     return answer if answer else [-1]
     
-print(solution(5, 55))
-
+print(solution(5, 555))
