@@ -1,9 +1,22 @@
-def solution(l, r):
-    answer = []
-    for num in range(l, r + 1):
-        if not set(str(num)) - set(['0', '5']):
-            answer.append(num)
-    return answer if answer else [-1]
+def solution(arr):
+    stk = []
+    i = 0
     
-print(solution(5, 55))
+    while i < len(arr) : 
+        if stk :
+            if stk[-1] < arr[i]:
+                stk.append(arr[i])
+                i += 1
+                print(stk, i)
+            else: 
+                stk.pop()
+                print(stk, i)
+        else:
+            stk.append(arr[i])
+            print(stk, i)
+            i += 1
+            
+    return stk
+
+print(solution([1, 4, 2, 5, 3]))
 
