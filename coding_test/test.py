@@ -1,6 +1,10 @@
-def solution(my_string, s, e):
-    answer = my_string.replace(my_string[s:e+1], my_string[e:s-1:-1])
-    # print(my_string[6:13], my_string[-6:-10])
-    return answer
+def solution(my_string, m, c):
+    # answer += my_string[c::m] 
+    # for i in range(len(my_string)):
+    #     if c+m*i <= len(my_string) :
+    #         answer= answer + my_string[c + m*i]
+      
+    return my_string[c-1::m]
+    # return answer
 
-print(solution("Progra21Sremm3", 6,12))
+print(solution("ihrhbakrfpndopljhygc", 4,2))
