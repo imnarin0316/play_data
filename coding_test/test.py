@@ -1,8 +1,11 @@
-def solution(arr):
+def solution(my_string, indices):
+    li = list(my_string)
     
-    for char_code in range(ord('A'), ord('Z') + 1):
-        print(chr(char_code), end=" ")
-    
+    # for i in range(len(my_string)) :
+    for su in sorted(indices, reverse=True):
+        del li[su]
 
-print(solution([1, 4, 2, 5, 3]))
+    return ''.join(li)
+
+print(solution('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3]))
 
