@@ -1,11 +1,13 @@
-def solution(my_string, indices):
-    li = list(my_string)
-    
-    # for i in range(len(my_string)) :
-    for su in sorted(indices, reverse=True):
-        del li[su]
+def solution(arr):
+    idx = [i for i in range(len(arr)) if arr[i] == 2]
+    print(idx[0] , idx[-1])
+    a = idx[0]
+    b = idx[-1]
+    print(arr[a,b])
+    if idx :
+        return arr[a,b] 
+    else :
+        return [-1]
 
-    return ''.join(li)
-
-print(solution('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3]))
+print(solution([1, 2, 1, 4, 5, 2, 9]))
 
