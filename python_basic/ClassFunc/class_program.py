@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Frame, Button, Text, Entry
+from tkinter import Tk, Label, Frame, Button, Entry, PhotoImage
 from tkinter import ttk
 import json
 
@@ -21,6 +21,8 @@ class Comments:
 #         self.__age = age
 #         self.__address = address
 
+def button_clicked():
+    print("Button Clicked")
 
 root = Tk()
 root.title(Comments.title)
@@ -38,43 +40,48 @@ about.place(x=50, y=112,  width=664, height=50 )
 
 t_name = Label(about, text="이름:", font=("Pretendard",12), bg='#f0f0f0')
 t_name.place(x=26, y=15, width=31 ,height=20 )
-s_name = Entry(about, bd=0)
+s_name = Entry(about, bd=0 , font=("Pretendard",14))
 s_name.place(x=60, y=5, width=53, height=40)
 
 t_age = Label(about, text="나이:", font=("Pretendard",12), bg='#f0f0f0')
 t_age.place(x=137, y=15, width=31 ,height=20 )
-s_age = Entry(about, bd=0)
+s_age = Entry(about, bd=0 , font=("Pretendard",14))
 s_age.place(x=170, y=5, width=53, height=40)
 
 t_address = Label(about, text="주소:", font=("Pretendard",12), bg='#f0f0f0')
 t_address.place(x=233, y=15, width=38 ,height=20 )
-s_address = Entry(about, bd=0)
+s_address = Entry(about, bd=0 , font=("Pretendard",14))
 s_address.place(x=271, y=5, width=54, height=40)
 
 t_lang = Label(about, text="국어:", font=("Pretendard",12), bg='#f0f0f0')
 t_lang.place(x=337, y=15, width=38 ,height=20 )
-s_lang = Entry(about, bd=0)
+s_lang = Entry(about, bd=0 , font=("Pretendard",14))
 s_lang.place(x=375, y=5, width=54, height=40)
 
 t_en = Label(about, text="영어:", font=("Pretendard",12), bg='#f0f0f0')
 t_en.place(x=441, y=15, width=38 ,height=20 )
-s_en = Entry(about, bd=0)
+s_en = Entry(about, bd=0 , font=("Pretendard",14))
 s_en.place(x=479, y=5, width=54, height=40)
 
 t_math = Label(about, text="수학:", font=("Pretendard",12), bg='#f0f0f0')
 t_math.place(x=545, y=15, width=38 ,height=20 )
-s_math = Entry(about, bd=0)
+s_math = Entry(about, bd=0 , font=("Pretendard",14))
 s_math.place(x=583, y=5, width=54, height=40)
 
 # 버튼들 프레임
 btns = Frame(root, width=200, height=50, bg='#F0F0F0')
 btns.place(x=746, y=112,  width=200, height=50 )
 
-get_btn = Button(btns, text= '조회', bg="#D6D6D6")
+get_btn = Button(btns, text= '조회', bg="#D6D6D6", bd=1, font=("Pretendard",16, 'bold'))
 get_btn.place(x=0, y=0, width=90, height=50)
 
-save_btn = Button(btns, text='변경', bg="#D6D6D6")
+save_btn = Button(btns, text='변경', bg="#D6D6D6", bd=1, font=("Pretendard",16, 'bold'))
 save_btn.place(x=110, y=0, width=90, height=50)
+
+
+button_image = PhotoImage(file="./button_image.gif")
+image_button = Button(root, image=button_image, command=button_clicked)
+image_button.pack()
 
 root.configure(bg="#F0F0F0")
 root.mainloop()

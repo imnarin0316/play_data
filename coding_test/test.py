@@ -1,13 +1,6 @@
 def solution(arr):
-    idx = [i for i in range(len(arr)) if arr[i] == 2]
-    print(idx[0] , idx[-1])
-    a = idx[0]
-    b = idx[-1]
-    print(arr[a,b])
-    if idx :
-        return arr[a,b] 
-    else :
-        return [-1]
+    answer = [ su/2 if su >= 50 and su % 2 == 0 else su*2 if  su < 50 and su % 2 != 0 else su for su in arr  ]
+    return answer
 
-print(solution([1, 2, 1, 4, 5, 2, 9]))
+print(solution([1, 2, 3, 100, 99, 98]))
 
