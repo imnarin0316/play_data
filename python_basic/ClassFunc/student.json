@@ -3,48 +3,56 @@
         "name": "김덕배",
         "age" : 15,
         "address": "서울",
-        "grade" : [70, 50, 80]
+        "grade" : [70, 50, 80],
+        "img" : "./python_basic/ClassFunc/button_image_0.png"
     },
     {
         "name": "유재성",
         "age" : 18,
         "address": "인천",
-        "grade" : [30, 50, 100]
+        "grade" : [30, 50, 100],
+        "img" : "./python_basic/ClassFunc/button_image_1.png"
     },
     {
         "name": "박명수",
         "age" : 14,
         "address": "전주",
-        "grade" : [10, 70, 20]
+        "grade" : [10, 70, 20],
+        "img" : "./python_basic/ClassFunc/button_image_2.png"
     },
     {
         "name": "전현무",
         "age" : 16,
         "address": "광주",
-        "grade" : [90, 90, 70]
+        "grade" : [90, 90, 70],
+        "img" : "./python_basic/ClassFunc/button_image_3.png"
     },
     {
         "name": "한혜진",
         "age" : 19,
         "address": "부천",
-        "grade" : [50, 90, 20]
+        "grade" : [50, 90, 20],
+        "img" : "./python_basic/ClassFunc/button_image_4.png"
     },
     {
         "name": "최보라",
         "age" : 18,
         "address": "과천",
-        "grade" : [30, 100, 20]
+        "grade" : [30, 100, 20],
+        "img" : "./python_basic/ClassFunc/button_image_5.png"
     },
     {
         "name": "김핑크",
         "age" : 12,
         "address": "김포",
-        "grade" : [90, 90, 50]
+        "grade" : [90, 90, 50],
+        "img" : "./python_basic/ClassFunc/button_image_6.png"
     },
     {
         "name": "김블루",
         "age" : 15,
         "address": "포천",
-        "grade" : [50, 100, 20]
+        "grade" : [50, 100, 20],
+        "img" : "./python_basic/ClassFunc/button_image_7.png"
     }
 ]

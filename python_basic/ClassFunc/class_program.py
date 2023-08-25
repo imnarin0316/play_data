@@ -1,11 +1,11 @@
-from tkinter import Tk, Label, Frame, Button, Entry, PhotoImage
-from tkinter import ttk
+from tkinter import Tk, ttk, Label, Frame, Button, Entry, PhotoImage, Image
 import json
+from PIL import Image, ImageTk
 
-students_data = []
-file_name = './python_basic/ClassFunc/student.json'
-with open(file_name, 'r', encoding="utf=8") as file:
-    students_data = json.load(file)
+# students_data = []
+# file_name = './python_basic/ClassFunc/student.json'
+# with open(file_name, 'r', encoding="utf=8") as file:
+#     students_data = json.load(file)
 
 class Comments: 
     title = "학생조회"
@@ -20,6 +20,27 @@ class Comments:
 #         self.__name = name
 #         self.__age = age
 #         self.__address = address
+
+class StudentInfo : 
+
+    def __init__(self):
+        studentNames = []
+        studentAges = []
+        studentAddress = []
+        studentGrade = [] 
+
+    def info_list(self):
+        students_data = []
+        file_name = './python_basic/ClassFunc/student.json'
+        with open(file_name, 'r', encoding="utf=8") as file:
+            students_data = json.load(file)
+
+    # students_data 루프를 통해 초기 데이터 설정
+    for student in students_data:
+        studentNames.append(student["name"])
+        studentAges.append(student["age"])
+        studentAddress.append(student["address"])
+        studentGrade.append(student["grade"])
 
 def button_clicked():
     print("Button Clicked")
@@ -78,10 +99,26 @@ get_btn.place(x=0, y=0, width=90, height=50)
 save_btn = Button(btns, text='변경', bg="#D6D6D6", bd=1, font=("Pretendard",16, 'bold'))
 save_btn.place(x=110, y=0, width=90, height=50)
 
+# image_pil = []
+for i in range(len(students_data)):
+    # 각 학생별 이미지 생성 (student['image_path']는 이미지 파일 경로)
+    image_pil = Image.open(f"./python_basic/ClassFunc/button_image_0.png")
+    image = ImageTk.PhotoImage(image_pil)
 
-button_image = PhotoImage(file="./button_image.gif")
-image_button = Button(root, image=button_image, command=button_clicked)
-image_button.pack()
+    # 학생 이름을 버튼 텍스트로 설정
+    image_button = Button(root, image=image, text=students_data[i]['name'], compound="top", command=button_clicked)
+    image_button.place(x=110, y=0, width=90 + (i * 50), height=50)
+
+
+    # # 이미지를 PIL로 열고 ImageTk.PhotoImage로 변환
+    # image_pil = Image.open(f"./python_basic/ClassFunc/button_image_{i}.png")
+    # image = ImageTk.PhotoImage(image_pil)
+
+    # image_button = Button(root, image=image, command=button_clicked)
+    # image_button.pack()
+
+
+
 
 root.configure(bg="#F0F0F0")
 root.mainloop()
