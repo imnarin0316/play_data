@@ -1,0 +1,9 @@
+이름, 나이, 주소, 성적, 사진
+"김블루", 15, "서울", [70, 10, 74], "./python_basic/ClassFunc/button_image_0.png"
+"최보라", 19, "인천", [80, 80, 23], "./python_basic/ClassFunc/button_image_0.png"
+"이빨강", 13, "광주", [70, 90, 78], "./python_basic/ClassFunc/button_image_0.png"
+"유핑크", 16, "서울", [50, 90, 74], "./python_basic/ClassFunc/button_image_0.png"
+"남노랑", 17, "전주", [30, 70, 78], "./python_basic/ClassFunc/button_image_0.png"
+"서주황", 13, "서울", [20, 20, 53], "./python_basic/ClassFunc/button_image_0.png"
+"박초록", 14, "김포", [10, 50, 26], "./python_basic/ClassFunc/button_image_0.png"
+"한검정", 15, "인천", [50, 70, 99], "./python_basic/ClassFunc/button_image_0.png"
