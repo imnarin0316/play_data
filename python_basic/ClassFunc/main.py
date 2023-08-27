@@ -5,32 +5,27 @@ from PIL import Image, ImageTk
 
 selected_idx = []
 
-
 def change_save():
     global selected_idx, entry_widgets
 
-    if selected_idx is not None:
-        modified_info = tuple(entry_widget.get() for entry_widget in entry_widgets)
-        pinfo.student_data.change_save(selected_idx, modified_info)
-        show_student_info(selected_idx)
+    if selected_idx:
+        sel_student_info = tuple(entry_widget.get() for entry_widget in entry_widgets)
+        pinfo.student_data.change_save(selected_idx, sel_student_info)
+     
         messagebox.showinfo("변경 완료", "정보가 변경되었습니다.")  # 변경 완료 메시지 표시
-        clear_entries()  # Entry 위젯 내용 지우기
         pinfo.StudentInfo("./python_basic/ClassFunc/student_info.csv")
-
+        show_student_info(selected_idx)
+            
+        
 def show_student_info(idx):
     global selected_idx
     selected_idx = idx
 
-    if idx < len(pinfo.student_datalist):
-        student_info = pinfo.student_datalist[idx]
-        for i, info in enumerate(student_info):
-            entry_widget = entry_widgets[i]  # 해당 인덱스의 Entry 위젯 가져오기
-            entry_widget.delete(0, END)  # Entry 위젯 내용 초기화
-            entry_widget.insert(0, str(info))  # 학생 정보 삽입
-            
-def clear_entries():
-    for entry_widget in entry_widgets:
-        entry_widget.delete(0, END) 
+    student_info = pinfo.student_datalist[idx]
+    for i, info in enumerate(student_info):
+        entry_widget = entry_widgets[i]  # 해당 인덱스의 Entry 위젯 가져오기
+        entry_widget.delete(0, END)  # Entry 위젯 내용 초기화
+        entry_widget.insert(0, str(info))  # 학생 정보 삽입
         
 class Comments: 
     title = "학생조회"
@@ -77,6 +72,7 @@ for i in range(num_entries):
     entry = Entry(about, bd=0, font=("Pretendard", 14))
     entry.place(x=57 + (104 * i), y=5, width=58, height=40)
     entry_widgets.append(entry)
+    # print(entry_widgets)
 
 # 버튼들 프레임
 btns = Frame(root, width=200, height=50, bg='#F0F0F0')
@@ -88,7 +84,7 @@ save_btn.place(x=0, y=0, width=200, height=50)
 imgbtns = Frame(root, width=896, height=532, bg='#F0F0F0')
 imgbtns.place(x=50, y=194,  width=896, height=532 )
 
-# image_btn = []
+
 # 이미지 객체를 저장할 리스트 생성
 image_list = []
 for i in range(len(pinfo.student_datalist)):
@@ -100,8 +96,6 @@ for i in range(len(pinfo.student_datalist)):
     image_button = Button(imgbtns, image=image, command=lambda idx=i: show_student_info(idx))
     image_button.place(x=(i % 4) * 232, y=(i // 4) * 282, width=200, height=250)
 
-
- 
 
 root.configure(bg="#F0F0F0")
 root.mainloop()

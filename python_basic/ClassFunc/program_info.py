@@ -12,7 +12,6 @@ g3 = []
 imgs = []
 
 class StudentInfo:
-    
     def __init__(self, file_name):
         print("정보조회 시작")
         self.file_name= file_name
@@ -32,19 +31,15 @@ class StudentInfo:
         student_datalist = list(zip(names, ages, addresses, g1, g2, g3))
         
     
-    # def get_info(self):
-        
     def show_info(self, idx):
         global select_student
         
         # 선택한 idx 값을 받아서 현재 조회하는 정보
         select_student = student_datalist[idx]
-     
         
     def change_save(self, idx, new_info):
         students.loc[idx, ['이름', '나이', '주소', '국', '영', '수']] = new_info
         students.to_csv("./python_basic/ClassFunc/student_info.csv", index=False)
         
-
 
 student_data = StudentInfo("./python_basic/ClassFunc/student_info.csv")
