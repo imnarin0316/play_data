@@ -2,45 +2,17 @@ from tkinter import Tk, ttk, Label, Frame, Button, Entry, PhotoImage, Image
 import json
 from PIL import Image, ImageTk
 
-# students_data = []
-# file_name = './python_basic/ClassFunc/student.json'
-# with open(file_name, 'r', encoding="utf=8") as file:
-#     students_data = json.load(file)
+students_data = []
+file_name = './python_basic/ClassFunc/student.json'
+with open(file_name, 'r', encoding="utf=8") as file:
+    students_data = json.load(file)
 
 class Comments: 
     title = "학생조회"
     head_title = "학생을 클릭하면 정보를 조회할 수 있습니다."
     error = "실행 불가"
 
-# class ClassMate:
-#     _data = students_data
-#     _name = 'class_mate'
 
-#     def __init__(self, name, age, address):
-#         self.__name = name
-#         self.__age = age
-#         self.__address = address
-
-class StudentInfo : 
-
-    def __init__(self):
-        studentNames = []
-        studentAges = []
-        studentAddress = []
-        studentGrade = [] 
-
-    def info_list(self):
-        students_data = []
-        file_name = './python_basic/ClassFunc/student.json'
-        with open(file_name, 'r', encoding="utf=8") as file:
-            students_data = json.load(file)
-
-    # students_data 루프를 통해 초기 데이터 설정
-    for student in students_data:
-        studentNames.append(student["name"])
-        studentAges.append(student["age"])
-        studentAddress.append(student["address"])
-        studentGrade.append(student["grade"])
 
 def button_clicked():
     print("Button Clicked")
