@@ -39,7 +39,7 @@ class StudentInfo:
         
     def change_save(self, idx, new_info):
         students.loc[idx, ['이름', '나이', '주소', '국', '영', '수']] = new_info
-        students.to_csv("./python_basic/ClassFunc/student_info.csv", index=False)
+        students.to_csv("./project/ClassFunc/student_info.csv", index=False)
         
 
-student_data = StudentInfo("./python_basic/ClassFunc/student_info.csv")
+student_data = StudentInfo("./project/ClassFunc/student_info.csv")

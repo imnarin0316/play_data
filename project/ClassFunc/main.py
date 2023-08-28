@@ -23,7 +23,7 @@ def change_save():
         pinfo.student_data.change_save(selected_idx, sel_student_info)
      
         messagebox.showinfo(Comments.save, Comments.save_txt)  # 변경 완료 메시지 표시
-        pinfo.StudentInfo("./python_basic/ClassFunc/student_info.csv")
+        pinfo.StudentInfo("./project/ClassFunc/student_info.csv")
         show_student_info(selected_idx)
             
         
@@ -83,7 +83,7 @@ imgbtns.place(x=50, y=194,  width=896, height=532 )
 # 이미지 객체를 저장할 리스트 생성
 image_list = []
 for i in range(len(pinfo.student_datalist)):
-    image_pil = Image.open(f"./python_basic/ClassFunc/button_image_{i}.png")
+    image_pil = Image.open(f"./project/ClassFunc/button_image_{i}.png")
     image = ImageTk.PhotoImage(image_pil)
     image_list.append(image) 
     
