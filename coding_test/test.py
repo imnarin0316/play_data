@@ -1,23 +1,26 @@
 def solution(arr):
-    count = 1
-    list_arr = [arr]
-    
-    while True:
-        li = []
-        for su in list_arr[count-1]:
-            if su >= 50 and su % 2 == 0:
-                li.append(int(su/2))
-            elif su < 50 and su % 2 != 0:
-                li.append(int(su*2 + 1))
+    stk = []
+    i = 0
+
+    for su in arr:
+        if len(arr) == i :
+            stk.append(arr[i])
+        else: 
+            if stk : 
+                if stk[-1] == arr[i]:
+                    stk.pop()
+                    i += 1 
+                else:
+                    stk.append(arr[i])
+                    i += 1 
             else:
-                li.append(int(su))
-            
-        list_arr.append(li)
-        count += 1
-        print(list_arr)
+                stk.append(arr[i])
+                i += 1 
 
-        if list_arr[count-1] == list_arr[count-2]:
-            return count-2  
+    if not stk:
+        return [-1]
+    
+    return  stk
 
-print(solution([1, 2, 3, 100, 99, 98]))
+print(solution([0, 1, 1, 1, 0]))
 
