@@ -37,6 +37,7 @@ def change_save():
             return
 
         # pinfo.student_data.change_save(selected_idx, sel_student_info)
+        # 바꾼값으로 저장하기 위해서 객체 이름 작성해줌
         pinfo.student_data.change_save(selected_idx, (name, age, address, g1, g2, g3))
     
         messagebox.showinfo(Comments.save, Comments.save_txt)  # 변경 완료 메시지 표시
