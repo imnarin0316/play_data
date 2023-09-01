@@ -15,13 +15,30 @@ class Comments:
     
 selected_idx = []
 
+def convert_to_int_or_raise(value, ty):
+    try:
+        ty(value)
+    except ValueError:
+        raise ValueError(f"Cannot convert '{value}' to an integer.")
+
 def change_save():
     global selected_idx, entry_widgets
 
     if selected_idx:
         sel_student_info = tuple(entry_widget.get() for entry_widget in entry_widgets)
-        pinfo.student_data.change_save(selected_idx, sel_student_info)
-     
+        name, age_str, address, g1_str, g2_str, g3_str = sel_student_info
+        try:
+            age = int(age_str)
+            g1 = int(g1_str)
+            g2 = int(g2_str)
+            g3 = int(g3_str)
+        except ValueError:
+            messagebox.showerror("Error", "이곳에는 숫자만 작성 가능합니다.")
+            return
+
+        # pinfo.student_data.change_save(selected_idx, sel_student_info)
+        pinfo.student_data.change_save(selected_idx, (name, age, address, g1, g2, g3))
+    
         messagebox.showinfo(Comments.save, Comments.save_txt)  # 변경 완료 메시지 표시
         pinfo.StudentInfo("./project/ClassFunc/student_info.csv")
         show_student_info(selected_idx)
