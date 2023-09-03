@@ -14,6 +14,8 @@ headers = {
 response = requests.get(url, headers=headers, params=querystring)
 
 json = response.json()
+# 가져온 api 정보 ---
+
 movies = json['d']
 
 items =[]
