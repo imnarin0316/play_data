@@ -25,14 +25,14 @@ kospi_day = []
 for date, high, low in zip(kospis_date, kospis_high, kospis_low):
     kospi_avg = (float(high) + float(low)) / 2
     kospi_day.append([date, round(kospi_avg, 2)])
-# print(kospi_day[0:5])
+# print(kospi_day[:5])
 
 
 # 전날을 기준으로 한 등락 비율
 for i in range(1, len(kospi_day)):
     result = ''
     per = kospi_day[i-1][1] / kospi_day[i][1]
-    kospi_day[i].append(per)
+    kospi_day[i].append(round(per, 2))
     
     # 결과값
     if kospi_day[i-1][1] > kospi_day[i][1] :
@@ -42,5 +42,17 @@ for i in range(1, len(kospi_day)):
     else :
         result = '변동없음' 
     kospi_day[i].append(result)  
-# print('코스피 일별 변동 사항', kospi_day[0:10])
+# print('코스피 일별 변동 사항', kospi_day[:10])
 
+
+# 감소한 날짜, 증가한 날짜 리스트 만들기
+# 참고한 사이트에 의하면 뉴스가 나온 다음날 코스피의 등락이 결정된다고 하였으니, 만약 뉴스 기사가 뜨는 '당일'로 날짜를 구해야한다면 "kospi_day[i-1][0]" 로 날짜가 구해져야하는 것이 맞을 것 같음. 
+
+kospi_up_date = []
+kospi_down_date = []
+for i in range(1, len(kospi_day)):
+    if kospi_day[i][3] == '증가': 
+        kospi_up_date.append(kospi_day[i][0])
+    elif kospi_day[i][3] == '감소':
+        kospi_down_date.append(kospi_day[i][0])
+# print(kospi_up_date[:5], kospi_down_date[:5])
