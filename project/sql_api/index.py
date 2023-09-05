@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import json
+# 주석
 
 url = "https://imdb8.p.rapidapi.com/auto-complete"
 
