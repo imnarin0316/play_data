@@ -26,6 +26,7 @@ def change_save():
 
     if selected_idx:
         sel_student_info = tuple(entry_widget.get() for entry_widget in entry_widgets)
+<<<<<<< Updated upstream:project/ClassFunc/main.py
         name, age_str, address, g1_str, g2_str, g3_str = sel_student_info
         try:
             age = int(age_str)
@@ -39,6 +40,9 @@ def change_save():
         # pinfo.student_data.change_save(selected_idx, sel_student_info)
         # 바꾼값으로 저장하기 위해서 객체 이름 작성해줌
         pinfo.student_data.change_save(selected_idx, (name, age, address, g1, g2, g3))
+=======
+        pinfo.student_data.change_save(selected_idx, sel_student_info)
+>>>>>>> Stashed changes:python_basic/ClassFunc/main.py
     
         messagebox.showinfo(Comments.save, Comments.save_txt)  # 변경 완료 메시지 표시
         pinfo.StudentInfo("./project/ClassFunc/student_info.csv")
@@ -54,7 +58,7 @@ def show_student_info(idx):
         entry_widget = entry_widgets[i]  # 해당 인덱스의 Entry 위젯 가져오기
         entry_widget.delete(0, END)  # Entry 위젯 내용 초기화
         entry_widget.insert(0, str(info))  # 학생 정보 삽입
-       
+
 
 root = Tk()
 root.title(Comments.title)
