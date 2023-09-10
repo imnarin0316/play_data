@@ -1,15 +1,23 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>퀴즈</title>
-</head>
-<body>
-    <h2> 2 + 2 = 4</h2>
-    <ul>
+    <link
+      rel="stylesheet"
+      href="{% static 'single_pages/style.css' %}"
+      media="screen"
+    />
+  </head>
+  <body>
+    <div class="center">
+      <h2>2 + 2 = 4</h2>
+      <ul>
         <li>O</li>
         <li>X</li>
-    </ul>
-</body>
+      </ul>
+    </div>
+  </body>
 </html>

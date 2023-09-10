@@ -1,15 +1,21 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>시작하기</title>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{% static 'single_pages/style.css' %}"
+      media="screen"
+    />
+  </head>
+  <body>
+    <div class="center">
+      <h1>주식 관련 OX 퀴즈</h1>
 
-<h1>주식 관련 OX 퀴즈</h1>    
-<nav>
-    <a href="/about_me/">시작하기</a>
-</nav>
-</body>
+      <a href="/about_me/">시작하기</a>
+    </div>
+  </body>
 </html>
