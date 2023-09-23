@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load sass_tags %} {% load static %}
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% sass_src 'css/all_common.scss' %}"
+    />
+    <link
+      href="{% sass_src 'scss/pc_quiz.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% sass_src 'scss/mo_quiz.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div id="f20">{% block content %} {% endblock %}</div>
+  </body>
+</html>

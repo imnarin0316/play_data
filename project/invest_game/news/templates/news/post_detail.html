@@ -1,0 +1,16 @@
+{% extends './_base.html' %} {% block content %}
+<!-- <nav>
+  <a href="/news/">NEWS</a>
+</nav> -->
+
+<div class="news_content">
+  <div class="news_txt">
+    <h2>{{ post.title }}</h2>
+    <span>{{ post.created_at }}</span>
+    <p>{{ post.content }}</p>
+  </div>
+
+  <button><a href="{% url 'news_feed' %}">뒤로가기</a></button>
+</div>
+
+{% endblock %}

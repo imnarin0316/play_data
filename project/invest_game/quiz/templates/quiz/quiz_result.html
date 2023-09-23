@@ -1,0 +1,18 @@
+{% extends './_base.html' %} {% block content %}
+
+<h1>퀴즈 결과</h1>
+<p>맞힌 문제 개수: {{ correct_answers }}</p>
+
+<ul>
+  {% for question in questions %}
+  <li>
+    <h2>{{ question.headline }}</h2>
+    <p>{{ question.lead }}</p>
+    <p>투자 대상: {{ question.invest }}</p>
+    <p>정답: {{ question.correct_answer }}</p>
+    <p>사용자의 답: {{ question.user_answer }}</p>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'start_game' %}">새 게임 시작</a>
+{% endblock %}

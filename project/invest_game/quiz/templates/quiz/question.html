@@ -1,0 +1,83 @@
+{% extends './_base.html' %} {% block content %}
+
+<section class="quiz_frame">
+  <progress class="progress" value="{{ question.su }}" max="10"></progress>
+
+  <div class="head">
+    <span>Q{{ question.su }}.</span>
+    <p>{{ question.invest }}</p>
+    <button>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="6"
+        height="8"
+        viewBox="0 0 6 8"
+        fill="none"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M4.28676 6.54417C4.28676 6.16341 4.5125 5.82651 4.81173 5.59106C5.53372 5.02292 6 4.12349 6 3.11112C6 1.39289 4.65685 0 3 0C1.34315 0 0 1.39289 0 3.11112C0 4.12414 0.466882 5.02409 1.18967 5.59216C1.48926 5.82762 1.71533 6.16471 1.71533 6.54575V6.99999C1.71533 7.55228 2.16305 7.99999 2.71533 7.99999H3.28676C3.83905 7.99999 4.28676 7.55228 4.28676 6.99999V6.54417Z"
+          fill="white"
+        />
+      </svg>
+      Hint
+    </button>
+  </div>
+
+  <div class="content">
+    <h5>{{ question.headline }}</h5>
+    <p>{{ question.lead }}</p>
+  </div>
+
+  <form method="post" action="{% url 'answer_question' %}" id="answer_form">
+    {% csrf_token %}
+    <label>
+      <input type="radio" name="answer" value="1" id="option1" />
+      {{ question.invest }}가 상승한다.
+    </label>
+    <label>
+      <input type="radio" name="answer" value="0" id="option2" />
+      {{ question.invest }}가 하락한다.
+    </label>
+
+    <label class="next_btn">
+      <input type="submit" id="submitButton" value="다음 문제" disabled />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="9"
+        height="12"
+        viewBox="0 0 9 12"
+        fill="none"
+      >
+        <path
+          d="M1.9502 1L6.89994 5.94975L1.9502 10.8995"
+          stroke="#5D7B6F"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </label>
+  </form>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("answer_form");
+    const option1 = document.getElementById("option1");
+    const option2 = document.getElementById("option2");
+    const submitButton = document.getElementById("submitButton");
+
+    // 라디오 버튼의 변경 이벤트를 감지
+    form.addEventListener("change", function () {
+      if (option1.checked || option2.checked) {
+        // 하나 이상의 라디오 버튼이 선택된 경우 submit 버튼 활성화
+        submitButton.removeAttribute("disabled");
+      } else {
+        // 라디오 버튼이 선택되지 않은 경우 submit 버튼 비활성화
+        submitButton.setAttribute("disabled", "true");
+      }
+    });
+  });
+</script>
+{% endblock %}
