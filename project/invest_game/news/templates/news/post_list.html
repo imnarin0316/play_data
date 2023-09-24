@@ -1,46 +1,48 @@
-{% extends './_base.html' %} {% load static %}
+{% extends './_base.html' %}
+{% load static %}
 {% block content %}
 
-{% include 'news/_header.html' %}
-<div class="main_f">
-  <img src="{% static 'img/kospi.png' %}" alt="코스피" />
-</div>
-
-<section class="news news_feed">
-  <h3>NEWS FEED</h3>
-  <p>이슈되고 있는 뉴스기사를 안내합니다.</p>
-
-  <ul>
-    {% for p in post_list %}
-    <li>
-      <h2>{{ p.title }}</h2>
-      <a href="{{ p.get_absolute_url }}">
-        <img src="{% static 'img/go.png' %}" alt="이동"
-      /></a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
-
-<section class="news news_tip">
-  <h3>REMEMBER TIP</h3>
-  <div class="slider">
-    <ol>
-      <li>
-        <h2>아는 만큼<br />클릭하세요!</h2>
-      </li>
-      <li>
-        <h2>아는 만큼<br />클릭하세요!</h2>
-      </li>
-      <li>
-        <h2>아는 만큼<br />클릭하세요!</h2>
-      </li>
-      <li>
-        <h2>아는 만큼<br />클릭하세요!</h2>
-      </li>
-    </ol>
+  {% include 'news/_header.html' %}
+  <div class="main_f">
+    <img src="{% static 'img/kospi.png' %}" alt="코스피"/>
   </div>
-</section>
 
-<a href="{% url 'answer_question' %}" class="quiz_btn">퀴즈풀기</a>
+  <section class="news news_feed">
+    <h3>NEWS FEED</h3>
+    <p>이슈되고 있는 뉴스기사를 안내합니다.</p>
+
+    <ul>
+      {% for p in post_list %}
+        <li>
+          <a href="{{ p.get_absolute_url }}">
+            <h2>{{ p.title }}</h2>
+
+            <img src="{% static 'img/go.png' %}" alt="이동"/>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="news news_tip">
+    <h3>REMEMBER TIP</h3>
+    <div class="slider">
+      <ol>
+        <li>
+          <h2>아는 만큼<br/>클릭하세요!</h2>
+        </li>
+        <li>
+          <h2>아는 만큼<br/>클릭하세요!</h2>
+        </li>
+        <li>
+          <h2>아는 만큼<br/>클릭하세요!</h2>
+        </li>
+        <li>
+          <h2>아는 만큼<br/>클릭하세요!</h2>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <a href="{% url 'answer_question' %}" class="quiz_btn">퀴즈풀기</a>
 {% endblock %}

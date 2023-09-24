@@ -1,18 +1,75 @@
-{% extends './_base.html' %} {% block content %}
+{% extends './_base.html' %}
+{% load static %}
+{% block content %}
 
-<h1>퀴즈 결과</h1>
-<p>맞힌 문제 개수: {{ correct_answers }}</p>
+  <div class="score">
+    <h2>퀴즈 점수</h2>
+    <p>SCORE:
+      {{ correct_answers }}</p>
+  </div>
 
-<ul>
-  {% for question in questions %}
-  <li>
-    <h2>{{ question.headline }}</h2>
-    <p>{{ question.lead }}</p>
-    <p>투자 대상: {{ question.invest }}</p>
-    <p>정답: {{ question.correct_answer }}</p>
-    <p>사용자의 답: {{ question.user_answer }}</p>
-  </li>
-  {% endfor %}
-</ul>
-<a href="{% url 'start_game' %}">새 게임 시작</a>
+  <div class="rank">
+    <h2>명예의 전당</h2>
+    <ul>
+      {% for rank in rank_range %}
+        <li>
+          <div>
+            <span>{{ rank }}위</span>
+            <p>닉네임</p>
+          </div>
+          <h4>10000점</h4>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <button id="note" onclick="ModalOpen()">틀린 문제 확인하기</button>
+
+  <a href="/" class="newgame">새 게임 시작</a>
+
+  <div id="modal">
+    <button onclick="ModalOpen()">닫기 X</button>
+    <div class="modal_frame">
+      <h2>다시 체크해봅시다.</h2>
+      <ul>
+        {% for question in questions %}
+          {% if question.correct_answer != question.user_answer %}
+            <li>
+              <div class="q_head">
+              <span>
+                {{ question.su }}번 문제</span>
+              <h2>{{ question.headline }}</h2>
+              </div>
+              <p class="q_con">{{ question.lead }}</p>
+              <p class="q_dab">정답: {{ question.invest }}
+                {% if question.correct_answer %}
+                  상승
+                {% else %}
+                  하락
+                {% endif %}
+              </p>
+              {% comment %} <p>사용자의 답:
+                {% if question.user_answer %}
+                  상승
+                {% else %}
+                  하락
+                {% endif %}
+              </p> {% endcomment %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="modal_bg"></div>
+  </div>
+
+  <script>
+    const ModalOpen = () => {
+      let modalPop = document.getElementById('modal')
+      modalPop
+        .classList
+        .toggle('open')
+    }
+  </script>
 {% endblock %}

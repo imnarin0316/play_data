@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz Game</title>
-  </head>
-  <body>
-    <h1>게임을 시작하세요</h1>
+{% extends './_base.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block content %}
+
+  <div id="main">
+    <h5>
+      <img src="{% sass_src 'img/tit.png' %}"/>
+    </h5>
+
+    <p>게임을 시작하세요.</p>
     <form method="post" action="{% url 'start_game' %}">
       {% csrf_token %}
-      <a href="{% url 'answer_question' %}">게임시작하기</a>
+      <a href="{% url 'news_feed' %}">게임시작</a>
     </form>
-  </body>
-</html>
+  </div>
+
+{% endblock %}

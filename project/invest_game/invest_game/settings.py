@@ -18,7 +18,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "news",
     "quiz",
-    "one_page",
     "sass_processor",
 ]
 

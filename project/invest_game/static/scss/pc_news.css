@@ -3,6 +3,9 @@
     min-height: 100vh;
     padding: 40px 20px;
     background-color: #eef0eb; }
+  #pc_f {
+    max-width: 50%;
+    margin: 0 auto; }
   header {
     padding-bottom: 16px;
     border-bottom: 1px solid #222; }
@@ -46,11 +49,14 @@
       justify-content: space-between;
       align-items: center; }
       .news_feed ul li a {
-        width: 28px;
-        height: 28px; }
+        width: 100%;
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
         .news_feed ul li a img {
-          width: 100%;
-          height: 100%; }
+          width: 28px;
+          height: 28px; }
   .news_tip h3 {
     margin-bottom: 20px; }
   .news_tip .slider {
