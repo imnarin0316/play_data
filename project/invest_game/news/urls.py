@@ -6,8 +6,8 @@ from . import views
 """
 
 urlpatterns = [
-    path('<int:pk>/', views.PostDetail.as_view()),
-    path('', views.PostList.as_view(), name='news_feed'),
+    # path('<int:pk>/', views.PostDetail.as_view()),
+    path('', views.news_list, name='news_feed'),
 ]
 
 

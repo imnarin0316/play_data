@@ -121,13 +121,32 @@
 
       h5 {
         font-size: 20px;
-        height: 34px;
+        line-height: 26px;
         margin-bottom: 16px;
       }
 
       p {
         font-size: 16px;
         line-height: 26px;
+      }
+
+      #hint {
+        display: block;
+        margin-top: 20px;
+        background-color: #f8f6eb;
+        font-size: 16px;
+        line-height: 26px;
+        border-radius: 10px;
+        padding: 10px;
+        display: none;
+
+        &.open {
+          display: block !important;
+        }
+
+        li {
+          margin-bottom: 8px;
+        }
       }
     }
 
@@ -170,21 +189,22 @@
       }
 
       .next_btn {
+        padding: 2px 8px;
         width: 80px;
         height: 25px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        background-color: #004235;
+        border-radius: 5px;
         position: absolute;
         bottom: -42px;
         right: 0;
 
         input {
-          width: 65px;
           background: none;
           border: none;
-          color: #5d7b6f;
+          color: #fff;
           font-size: 16px;
           font-weight: 700;
         }
@@ -351,7 +371,7 @@
               font-size: 16px;
               font-weight: bold;
             }
-            h2 {
+            h5 {
               font-size: 16px;
             }
           }

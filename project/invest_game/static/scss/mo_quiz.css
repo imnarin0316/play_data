@@ -88,11 +88,24 @@
     padding: 32px 20px 20px 20px; }
     .quiz_frame .content h5 {
       font-size: 20px;
-      height: 34px;
+      line-height: 26px;
       margin-bottom: 16px; }
     .quiz_frame .content p {
       font-size: 16px;
       line-height: 26px; }
+    .quiz_frame .content #hint {
+      display: block;
+      margin-top: 20px;
+      background-color: #f8f6eb;
+      font-size: 16px;
+      line-height: 26px;
+      border-radius: 10px;
+      padding: 10px;
+      display: none; }
+      .quiz_frame .content #hint.open {
+        display: block !important; }
+      .quiz_frame .content #hint li {
+        margin-bottom: 8px; }
   .quiz_frame form {
     display: flex;
     justify-content: start;
@@ -122,19 +135,21 @@
     .quiz_frame form input[type="submit"] {
       color: #000; }
     .quiz_frame form .next_btn {
+      padding: 2px 8px;
       width: 80px;
       height: 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background-color: #004235;
+      border-radius: 5px;
       position: absolute;
       bottom: -42px;
       right: 0; }
       .quiz_frame form .next_btn input {
-        width: 65px;
         background: none;
         border: none;
-        color: #5d7b6f;
+        color: #fff;
         font-size: 16px;
         font-weight: 700; }
       .quiz_frame form .next_btn:has(input:disabled) {
@@ -254,7 +269,7 @@
               display: inline-block;
               font-size: 16px;
               font-weight: bold; }
-            #modal .modal_frame ul li .q_head h2 {
+            #modal .modal_frame ul li .q_head h5 {
               font-size: 16px; }
           #modal .modal_frame ul li .q_con {
             font-size: 16px;

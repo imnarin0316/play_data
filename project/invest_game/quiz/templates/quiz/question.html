@@ -1,12 +1,12 @@
 {% extends './_base.html' %} {% block content %}
 
 <section class="quiz_frame">
-  <progress class="progress" value="{{ question.su }}" max="10"></progress>
+  <progress class="progress" value="{{ question.su }}" max="8"></progress>
 
   <div class="head">
     <span>Q{{ question.su }}.</span>
     <p>{{ question.invest }}</p>
-    <button>
+    <button onclick="openHint()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="8"
@@ -28,6 +28,16 @@
   <div class="content">
     <h5>{{ question.headline }}</h5>
     <p>{{ question.lead }}</p>
+
+    <ul id="hint">
+      {% if question.word1 %}
+      <li>{{ question.word1 }}</li>
+      {% endif %} {% if question.word2 %}
+      <li>{{ question.word2 }}</li>
+      {% endif %} {% if question.word3 %}
+      <li>{{ question.word3 }}</li>
+      {% endif %}
+    </ul>
   </div>
 
   <form method="post" action="{% url 'answer_question' %}" id="answer_form">
@@ -42,7 +52,13 @@
     </label>
 
     <label class="next_btn">
-      <input type="submit" id="submitButton" value="다음 문제" disabled />
+      <input
+        type="submit"
+        id="submitButton"
+        value="다음 문제"
+        disabled
+        name="next_question"
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="9"
@@ -52,7 +68,7 @@
       >
         <path
           d="M1.9502 1L6.89994 5.94975L1.9502 10.8995"
-          stroke="#5D7B6F"
+          stroke="#fff"
           stroke-width="2"
           stroke-linecap="round"
         />
@@ -62,6 +78,11 @@
 </section>
 
 <script>
+  const openHint = () => {
+    let hint_op = document.getElementById("hint");
+    hint_op.classList.toggle("open");
+  };
+
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("answer_form");
     const option1 = document.getElementById("option1");

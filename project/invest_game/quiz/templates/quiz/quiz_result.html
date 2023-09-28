@@ -10,18 +10,30 @@
 
   <div class="rank">
     <h2>명예의 전당</h2>
+    {% if show_form %}
+    <form id="rankForm" method="post" action="{% url 'quiz_result' %}">
+        {% csrf_token %}
+        <label for="nickname">닉네임:</label>
+        <input type="text" id="nickname" name="nickname">
+        <button type="submit">랭킹 저장</button>
+    </form>
+    {% endif %}
+
     <ul>
-      {% for rank in rank_range %}
-        <li>
-          <div>
-            <span>{{ rank }}위</span>
-            <p>닉네임</p>
-          </div>
-          <h4>10000점</h4>
-        </li>
-      {% endfor %}
+      {% if top_ranks %}
+          {% for rank in top_ranks %}
+            <li> 
+              <div>
+                <span>{{ rank.rank }}위</span>  
+                <p>{{ rank.nickname }}</p>
+              </div>
+              <h4>{{ rank.score }}점</h4>
+            </li>
+          {% endfor %}
+      {% endif %}
     </ul>
-  </div>
+</div>
+
 
   <button id="note" onclick="ModalOpen()">틀린 문제 확인하기</button>
 
@@ -37,8 +49,8 @@
             <li>
               <div class="q_head">
               <span>
-                {{ question.su }}번 문제</span>
-              <h2>{{ question.headline }}</h2>
+                {{ question.idxx }}번 문제</span>
+              <h5>{{ question.headline }}</h5>
               </div>
               <p class="q_con">{{ question.lead }}</p>
               <p class="q_dab">정답: {{ question.invest }}
@@ -48,13 +60,6 @@
                   하락
                 {% endif %}
               </p>
-              {% comment %} <p>사용자의 답:
-                {% if question.user_answer %}
-                  상승
-                {% else %}
-                  하락
-                {% endif %}
-              </p> {% endcomment %}
             </li>
           {% endif %}
         {% endfor %}
@@ -71,5 +76,64 @@
         .classList
         .toggle('open')
     }
-  </script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // 기본 제출 동작을 막음
+      const nicknameInput = document.getElementById("nickname");
+      const nickname = nicknameInput.value;
+
+      if (nickname) {
+        // 폼을 서버로 제출 (Ajax 요청)
+        fetch("{% url 'quiz_result' %}", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-CSRFToken": "{{ csrf_token }}",
+          },
+          body: `nickname=${nickname}`,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.message === "Success") {
+              // 저장 성공한 경우에는 팝업을 표시
+              alert("랭킹이 저장되었습니다.");
+              // 화면을 리로드하여 업데이트된 랭킹 정보를 표시
+              location.reload();
+            } else {
+              alert("랭킹을 저장하지 못했습니다. 다시 시도하세요.");
+            }
+          })
+          .catch((error) => {
+            console.error("랭킹 저장 중 오류 발생:", error);
+          });
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const rankForm = document.getElementById("rankForm");
+    const nicknameInput = document.getElementById("nickname");
+    const submitButton = rankForm.querySelector("button");
+  
+    // 사용자의 랭킹 정보를 가져와서 점수를 확인합니다.
+    const userRank = {{ user_rank.rank|default:"0" }}; // Django 변수를 JavaScript로 가져옵니다.
+  
+    if (userRank > 0) {
+      // 사용자의 랭킹이 0보다 큰 경우 (랭킹 안에 들었을 경우) 입력란을 보이게 합니다.
+      rankForm.style.display = "block";
+    }
+  
+    // 닉네임을 입력한 경우에만 랭킹 저장 버튼을 활성화합니다.
+    nicknameInput.addEventListener("input", function () {
+      submitButton.disabled = !nicknameInput.value;
+    });
+  });
+  
+</script>
+
+  
 {% endblock %}

@@ -1,9 +1,9 @@
 @media screen and (min-width: 769px) {
   #pc_f {
     max-width: 50%;
-    margin:  0 auto;
+    margin: 0 auto;
   }
-  
+
   #f20 {
     min-height: calc(100vh - 80px);
     padding: 40px 20px;
@@ -126,13 +126,32 @@
 
       h5 {
         font-size: 20px;
-        height: 34px;
+        line-height: 26px;
         margin-bottom: 16px;
       }
 
       p {
         font-size: 16px;
         line-height: 26px;
+      }
+
+      #hint {
+        display: block;
+        margin-top: 20px;
+        background-color: #f8f6eb;
+        font-size: 16px;
+        line-height: 26px;
+        border-radius: 10px;
+        padding: 10px;
+        display: none;
+
+        &.open {
+          display: block !important;
+        }
+
+        li {
+          margin-bottom: 8px;
+        }
       }
     }
 
@@ -175,11 +194,14 @@
       }
 
       .next_btn {
+        padding: 2px 8px;
         width: 80px;
         height: 25px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background-color: #004235;
+        border-radius: 5px;
 
         position: absolute;
         bottom: -42px;
@@ -189,7 +211,7 @@
           width: 65px;
           background: none;
           border: none;
-          color: #5d7b6f;
+          color: #fff;
           font-size: 16px;
           font-weight: 700;
         }
@@ -305,21 +327,24 @@
     }
 
     button {
+      width: 50%;
       position: fixed;
       color: #fff;
       font-size: 16px;
-      right: 20px;
+      left: 50%;
       top: 40px;
+      transform: translate(-50%);text-align: right;
     }
 
     .modal_frame {
-      width: calc(100vw - 80px);
+      width: 50%;
       height: calc(100vh - 200px);
       padding: 20px;
 
       position: fixed;
       top: 70px;
-      left: 20px;
+      left: 50%;
+      transform: translate(-50%);
 
       background: #fff;
       border-radius: 20px;

@@ -13,6 +13,11 @@
       {% csrf_token %}
       <a href="{% url 'news_feed' %}">게임시작</a>
     </form>
+
+    
   </div>
 
+  <script>
+    console.log(global_selected_questions)
+  </script>
 {% endblock %}
