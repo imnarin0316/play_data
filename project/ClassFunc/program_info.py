@@ -11,6 +11,7 @@ g2 = []
 g3 = []
 imgs = []
 
+
 class StudentInfo:
     def __init__(self, file_name):
         print("정보조회 시작")
